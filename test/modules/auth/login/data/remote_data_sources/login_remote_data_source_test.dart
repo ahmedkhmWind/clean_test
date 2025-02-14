@@ -12,7 +12,7 @@ import 'login_remote_data_source_test.mocks.dart';
 void main() {
   late LoginRemoteDataSourceImpl dataSource;
   late MockClient mockHttpClient;
-  final String testUsername = 'test@example.com';
+  final String testUsername = 'ahmedkhmis99+1@gmail.com';
   final String testPassword = 'password123';
   final LoginResponseModel testLoginResponseModel = LoginResponseModel(
     token: 'testToken',
@@ -42,7 +42,7 @@ void main() {
           expect(result, equals(testLoginResponseModel));
           verify(mockHttpClient.post(
             Uri.parse(
-                'https://72cdf1ad-46cc-4c1e-8e74-4ae6d7dc34bd.mock.pstmn.io/post'),
+                'https://support.wind-erp.com/api/wind-auth/authenticate'),
             headers: {'Content-Type': 'application/json'},
             body: json.encode({'username': testUsername, 'password': testPassword, "rememberMe":true}),
           )).called(1);
@@ -64,7 +64,7 @@ void main() {
           expect(() => call, throwsA(isA<ServerFailure>()));
           verify(mockHttpClient.post(
             Uri.parse(
-                'https://72cdf1ad-46cc-4c1e-8e74-4ae6d7dc34bd.mock.pstmn.io/post'),
+                'https://support.wind-erp.com/api/wind-auth/authenticate'),
             headers: {'Content-Type': 'application/json'},
             body: json.encode({'username': testUsername, 'password': testPassword, "rememberMe":true}),
           )).called(1);

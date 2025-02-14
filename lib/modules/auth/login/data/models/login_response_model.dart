@@ -11,8 +11,8 @@ class LoginResponseModel extends Equatable {
   });
 
   LoginResponseModel.fromJson(Map<String, dynamic> json)
-      : token = json['data']['token'],
-        refreshToken = json['data']['refreshToken'];
+      : token = json['access_token'],
+        refreshToken = json['refresh_token'];
 
   LoginResponseItem toEntity() => LoginResponseItem(
     token: token,
@@ -22,8 +22,8 @@ class LoginResponseModel extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'data': {
-        'token': token,
-        'refreshToken': refreshToken,
+        'access_token': token,
+        'refresh_token': refreshToken,
       }
     };
   }
